@@ -1,6 +1,6 @@
 ---
 layout: category
-title: 주간 회고
+title: 논문 리뷰
 ---
 
 ## Posts

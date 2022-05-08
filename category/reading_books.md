@@ -1,6 +1,6 @@
 ---
 layout: category
-title: 주간 회고
+title: 독서
 ---
 
 ## Posts

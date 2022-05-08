@@ -1,6 +1,6 @@
 ---
 layout: category
-title: 주간 회고
+title: 네이버 부캠
 ---
 
 ## Posts
