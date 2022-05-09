@@ -10,7 +10,6 @@ tags:
   - 데이터셋
   - NLP
 ---
-
 # 0. 사전 정보
 
 - EMNLP 2021 Best Short Paper 선정.
@@ -53,9 +52,12 @@ tags:
     - 최종적으로 약 78만 5천여개의 데이터 확보
 - Humor Score(HS)
     
+    ![Untitled](/assets/img/2022-05-03-paperChoral/0.png)
+    
     - 페이스북에 기본 탑재된 이모지 리엑션 기능을 활용하여 유머 수준을 탐지
     - 가정: 전체 리엑션 중 ‘haha’ 리엑션의 비중이 높을 수록 포스트가 유머스러울 것이다.
-
+        
+        ![Untitled](/assets/img/2022-05-03-paperChoral/1.png)
         
     - h = (haha 리엑션의 수), t = (전체 리엑션의 수)
     - 전체 리엑션의 수를 50으로 나누고, 그 결과값을 tanh 함수에 넣어 나온 값을 곱한다 → 전체 리엑션 량이 적은 포스트의 유머 수치가 높게 나오는 경우를 방지
@@ -67,12 +69,15 @@ tags:
     - 가정: 대부분의 페이스북 포스트는 ‘유머가 아닌’ 포스트이다. → 페이스북 평균 리엑션 분포를 따르는 포스트는 ‘유머가 아닌’ 포스트일 가능성이 높다.
         - 증거: 대부분의 포스트는 낮은 HS 수치를 가지고 있었다.
         
+        ![Untitled](/assets/img/2022-05-03-paperChoral/2.png)
+        
     - t = (전체 리엑션 수), R = (리엑션 가짓수), r = (특정 리엑션), S = (표준 분포 내에서 r의 비율), O = (타겟 포스트 내에서 r의 비율)
     - 타겟 포스트 내의 리엑션의 MSE를 tanh로 normalize 한 뒤, 음의 로그를 취한 값을 NS로 정의.
     - NS 값이 높을 수록 페이스북 평균 수준의 포스트 → 유머가 아님.
 
 # 3. Humor Analysis
 
+![Untitled](/assets/img/2022-05-03-paperChoral/3.png)
 
 - 정의한 HS, NS 등이 현실에 맞는지 증명하기 위해 다양한 공식과 툴을 사용.
 - 안타깝게도 여백~~과 시간과 본인의 사전지식~~이 부족하여 자세한 설명은 생략.
@@ -93,6 +98,7 @@ tags:
     - epoch = 3
     - lr = 2e-5
         
+        ![Untitled](/assets/img/2022-05-03-paperChoral/4.png)
         
 - Metric으로 F1-score와 AUC(Area Under Curve) 사용.
 - 실험 결과 & 분석
