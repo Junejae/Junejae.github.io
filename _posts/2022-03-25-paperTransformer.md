@@ -41,7 +41,7 @@ tags:
     - Encoder처럼 각 서브 레이어마다 Residual Connection과 Layer Normalization 배치
     - Self-Attention 부분을 일부 수정하여 디코더가 이후의 포지션 정보를 엿보지 못하도록 조치(상세설명은 후술)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/89be5fc0-c974-4ff4-9a0f-7898840a4164/Untitled.png)
+<img alt="Attention Structure" src="/_screenshots/2022-03-25-paperTransformer/2.png?raw=true" width="300px" />
 
 - Attention - 기존처럼 Q, K, V 벡터를 사용하되, 세 벡터 모두 같은 input에서 유래
     - Scaled Dot-Product Attention
