@@ -41,12 +41,12 @@ tags:
     - Encoder처럼 각 서브 레이어마다 Residual Connection과 Layer Normalization 배치
     - Self-Attention 부분을 일부 수정하여 디코더가 이후의 포지션 정보를 엿보지 못하도록 조치(상세설명은 후술)
 
-<img alt="Attention Structure" src="_screenshots/2022-03-25-paperTransformer/2.png?raw=true" width="300px" />
+![Untitled](/assets/img/2022-03-25-paperTransformer/2.png)
 
 - Attention - 기존처럼 Q, K, V 벡터를 사용하되, 세 벡터 모두 같은 input에서 유래
     - Scaled Dot-Product Attention
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/578b0dfc-5396-4917-b337-b50654a3fc11/Untitled.png)
+        ![Untitled](/assets/img/2022-03-25-paperTransformer/3.png)
         
         - Attention 계산법은 크게 두 가지가 있음(Additive Attention & Dot-product Attention)
         - 이 중 행렬곱을 사용하는 Dot-product Attention을 사용하여 컴퓨팅 효율성을 추구
@@ -55,7 +55,7 @@ tags:
         - Scaled Dot-Product Attention = scaling + dot-product
     - Multi-Head Attention
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d93f57d1-ecf9-435d-9d4f-3d30c58d16ba/Untitled.png)
+        ![Untitled](/assets/img/2022-03-25-paperTransformer/4.png)
         
         - 단일 Attention 모델 보다 다중 Attention을 사용하여 문장의 각 단어 요소들을 여러 측면으로 바라볼 수 있게 조치.
         - 이 때, 인풋 벡터를  Attention 갯수인 h개로 등분하여 각각을 Q, K, V 벡터로 활용해 연산
@@ -70,7 +70,7 @@ tags:
             - Encoder의 것과 구조적으로 동일하나, Decoder에 들어간 output의 다음 시계열 정보를 엿보는 것을 방지하기 위해 Masking 처리를 함(음의 무한대)
 - Position-wise Feed-Forward Networks
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c7977019-057a-4f67-b81d-24708a264752/Untitled.png)
+    ![Untitled](/assets/img/2022-03-25-paperTransformer/5.png)
     
     - 각 모듈의 말단부에 FC with ReLU 부착
     - fc (with bias)  → ReLU → fc (with bias) 로 이해하면 편함
@@ -81,14 +81,14 @@ tags:
     - 다만, Embedding 레이어는 weight를 embedded 된 벡터 차원 수의 제곱근으로 일괄적으로 나눠서 축소화
 - Positional Encoding
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d9be83f2-62aa-4bbd-9f21-c911001ec7b9/Untitled.png)
+    ![Untitled](/assets/img/2022-03-25-paperTransformer/6.png)
     
     - RNN, CNN 등이 없는 모델이므로, sequence 데이터의 포지션 정보를 따로 모델에게 제공할 필요가 있음
     - Positional encoding을 계산하고(상기 sin, cos 함수) embedded 된 결과물에 부착하여 포지션 정보를 녹여냄
 
 # 4. Why Self-Attention
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e22fb461-4f2c-44f9-8f4f-cf09c30cce89/Untitled.png)
+![Untitled](/assets/img/2022-03-25-paperTransformer/7.png)
 
 - Complexity per Layer: 레이어당 공간복잡도
 - Sequential Operations: 순차적 계산에 드는 시간복잡도
@@ -117,7 +117,7 @@ tags:
     - Adam 사용
     - betas=(0.9, 0.98), eps=1e-09 (Pytorch default: betas=(0.9, 0.999), eps=1e-08)
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/07b6cc2d-339c-4eed-a267-a2ca31400c96/Untitled.png)
+    ![Untitled](/assets/img/2022-03-25-paperTransformer/8.png)
     
     - LR은 warmup_steps=4000 동안 선형적으로 증가하게 세팅, 이후 상기한 공식대로 저하시킴
 - Regularization
@@ -128,7 +128,7 @@ tags:
 
 # 6. Results
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/33d08b35-ec87-4b18-8de6-5bfaebbc024f/Untitled.png)
+![Untitled](/assets/img/2022-03-25-paperTransformer/9.png)
 
 - TMI: English <=>German 이 EN-DE로 표기된 이유는 German = Deutsch(도이치)라서
 - 각 번역 task의 test 데이터셋은 newstest2014를 사용
@@ -138,15 +138,14 @@ tags:
 - Big 모델은 마지막 20개의 평균을 취함
 - 번역 task에 Beam search를 활용 (4-gram, alpha=0.6)  ← dev set으로 실험하며 결정
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f69b3775-1cb4-4383-85f3-6dc4aad0315b/Untitled.png)
-
+![Untitled](/assets/img/2022-03-25-paperTransformer/10.png)
 - Transformer 구조에서 중요한 포인트들을 알아보기 위해 하이퍼 파라미터를 다변화 하며 실험
     - A) Attention 갯수는 일단 single보단 많아야 함을 확인
     - B) Attention에 쓰이는 Key의 size를 줄이면 성능이 하락하는 것을 확인
     - C) & D) 모델 사이즈가 커질 수록 성능이 향상됨을 확인, dropout을 주어 overfitting을 방지하는 것도 중요
     - Positional embedding을 고전적 방식으로 바꿔 보았으니, 성능 향상은 없었음(= sin, cos 계산법이 유효)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c7eab6e3-a859-4d99-888b-81f6f6af262c/Untitled.png)
+![Untitled](/assets/img/2022-03-25-paperTransformer/11.png)
 
 - Transformer가 번역 말고도 다른 task에도 유효함을 보이기 위하여 영어 구문 분석 task도 수행
     - 구문 분석 특성 상 output 길이가 input 대비 아주 긴 경우가 일반적이라, RNN은 이 task에서 SOTA를 달성한 적이 없음
