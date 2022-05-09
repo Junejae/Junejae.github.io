@@ -28,7 +28,7 @@ tags:
 
 # 3. Model Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/80b0756a-9ecc-40d2-91be-05cc769fe9db/Untitled.png)
+![Untitled](/_screenshots/2022-03-25-paperTransformer/1.png?raw=true)
 
 - Transformer는 기존 Encoder-Decoder 구조의 큰 그림을 그대로 따라간다.
 - 내부 구조는 Self-Attention과 말단에 연결된 Fully Connected Layer
