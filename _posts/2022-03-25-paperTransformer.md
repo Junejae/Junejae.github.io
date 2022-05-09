@@ -28,7 +28,7 @@ tags:
 
 # 3. Model Architecture
 
-![Untitled](./_screenshots/2022-03-25-paperTransformer/1.png?raw=true)
+![Untitled](_screenshots/2022-03-25-paperTransformer/1.png?raw=true)
 
 - Transformer는 기존 Encoder-Decoder 구조의 큰 그림을 그대로 따라간다.
 - 내부 구조는 Self-Attention과 말단에 연결된 Fully Connected Layer
@@ -41,7 +41,7 @@ tags:
     - Encoder처럼 각 서브 레이어마다 Residual Connection과 Layer Normalization 배치
     - Self-Attention 부분을 일부 수정하여 디코더가 이후의 포지션 정보를 엿보지 못하도록 조치(상세설명은 후술)
 
-<img alt="Attention Structure" src="./_screenshots/2022-03-25-paperTransformer/2.png?raw=true" width="300px" />
+<img alt="Attention Structure" src="_screenshots/2022-03-25-paperTransformer/2.png?raw=true" width="300px" />
 
 - Attention - 기존처럼 Q, K, V 벡터를 사용하되, 세 벡터 모두 같은 input에서 유래
     - Scaled Dot-Product Attention
