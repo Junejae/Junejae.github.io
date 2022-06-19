@@ -6,8 +6,8 @@ categories:
   - 논문 리뷰
 tags:
   - 논문
-  - 라벨링
-  - 데이터셋
+  - Labeling
+  - Dataset
   - NLP
 ---
 # 0. 사전 정보
