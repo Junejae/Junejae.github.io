@@ -1,6 +1,6 @@
 ---
 layout: category
-title: Boost Camp
+title: BoostCamp
 ---
 
 ## Posts
