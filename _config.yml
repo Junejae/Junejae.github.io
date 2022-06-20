@@ -3,8 +3,8 @@ markdown:         kramdown
 highlighter:      rouge
 
 # Setup
-title:            June's Blog
-tagline:          ''
+title:            Junejae
+tagline:          'Engineer's Blog'
 # description:      'The <a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme for <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, refreshed.'
 description:      'A Cyber Chameleon.'
 url:              https://junejae.github.io
