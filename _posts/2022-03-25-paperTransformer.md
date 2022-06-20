@@ -11,6 +11,8 @@ tags:
   - NLP
 ---
 
+---
+
 # 1. Introduction
 
 - 지금까지 RNN 구조 모델, 특히 LSTM과 GRU는 인코더-디코더 구조, Attention 등의 개선을 거쳐가며 언어모델과 기계번역 Task에서 SOTA 성능을 내고 있었음.

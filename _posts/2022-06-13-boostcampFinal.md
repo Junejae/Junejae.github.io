@@ -14,6 +14,8 @@ tags:
   - Dataset
   - Project
 ---
+
+---
 ![Untitled](/assets/img/AITech로고.png)
 
 ## 🧭개인 학습 목표

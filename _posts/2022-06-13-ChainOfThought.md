@@ -10,6 +10,8 @@ tags:
   - NLP
 ---
 
+---
+
 # 1. Introduction
 
 ![Untitled](/assets/img/2022-06-13-ChainOfThought/Untitled.png)
