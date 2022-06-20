@@ -5,13 +5,13 @@
         {% unless page.url == "/" %}
           <span class="back-arrow icon">{% include svg/back-arrow.svg %}</span>
         {% endunless %}
-        <img src="{{ site.baseurl }}assets/img/avatar.png" alt="hi" class="inline"/>
         {{ site.title }}
       </a>
-    </{% if page.layout == "index" %}h1{% else %}div{% endif %}>
-    <p class="lead">{{ site.description }}</p>
-  </header>
-  {% include sidebar-nav-links.html %}
+      </{% if page.layout == "index" %}h1{% else %}div{% endif %}>
+      <img src="{{ site.baseurl }}assets/img/avatar.png" alt="hi" class="inline"/>
+      <p class="lead">{{ site.description }}</p>
+    </header>
+    {% include sidebar-nav-links.html %}
 
   {% if site.version %}
     <span class="site-version">Currently v{{ site.version }}</span>
